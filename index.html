@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commercial Changes, Business Impact &amp; Technology Upgrades (2025–26) — MSBTE</title>
+  <style>
+    /* ═══════════════════════════════════════════════════
+       BASE RESET & TYPOGRAPHY
+    ═══════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 13px; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PRINT HEADER & FOOTER (running elements)
+    ═══════════════════════════════════════════════════ */
+    #print-header {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      text-align: center;
+      font-size: 9px;
+      color: #666;
+      border-bottom: 1px solid #ccc;
+      padding: 4px 20mm;
+      background: #fff;
+    }
+
+    #print-footer {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      font-size: 9px;
+      color: #666;
+      border-top: 1px solid #ccc;
+      padding: 4px 20mm;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SCREEN WRAPPER
+    ═══════════════════════════════════════════════════ */
+    .page-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 30px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       COVER PAGE
+    ═══════════════════════════════════════════════════ */
+    .cover-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 40px;
+      border: 2px solid #d0d0d0;
+    }
+
+    .cover-logo-placeholder {
+      width: 80px;
+      height: 80px;
+      border: 2px solid #bbb;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #999;
+      margin: 0 auto 36px;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-org {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 24px;
+    }
+
+    .cover-rule {
+      width: 60px;
+      height: 3px;
+      background: #333;
+      margin: 0 auto 32px;
+    }
+
+    .cover-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      max-width: 680px;
+    }
+
+    .cover-subtitle {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 48px;
+      font-style: italic;
+    }
+
+    .cover-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 40px;
+      margin-top: 36px;
+      text-align: left;
+      border-top: 1px solid #e0e0e0;
+      padding-top: 28px;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .cover-meta-item label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      display: block;
+    }
+
+    .cover-meta-item span {
+      font-size: 12px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .cover-confidential {
+      position: absolute;
+      bottom: 30px;
+      font-size: 9px;
+      color: #aaa;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       TABLE OF CONTENTS
+    ═══════════════════════════════════════════════════ */
+    .toc-page {
+      padding: 48px 0;
+    }
+
+    .toc-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+      margin-bottom: 28px;
+    }
+
+    .toc-list {
+      list-style: none;
+    }
+
+    .toc-list li {
+      display: flex;
+      align-items: baseline;
+      padding: 6px 0;
+      border-bottom: 1px dotted #d8d8d8;
+      font-size: 12.5px;
+    }
+
+    .toc-num {
+      font-weight: 700;
+      color: #444;
+      min-width: 28px;
+    }
+
+    .toc-label {
+      flex: 1;
+      color: #333;
+    }
+
+    .toc-sub {
+      padding-left: 28px !important;
+      font-size: 11.5px;
+      color: #555;
+      border-bottom-color: #eee !important;
+    }
+
+    .toc-sub .toc-num {
+      min-width: 36px;
+      font-weight: 400;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       MODULE PAGE LAYOUT
+    ═══════════════════════════════════════════════════ */
+    .module-page {
+      padding: 48px 0 24px;
+    }
+
+    .module-header {
+      border-left: 5px solid #333;
+      padding: 14px 20px;
+      background: #f7f7f7;
+      margin-bottom: 32px;
+    }
+
+    .module-tag {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+
+    .module-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .module-subtitle {
+      font-size: 11.5px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SECTION CARD
+    ═══════════════════════════════════════════════════ */
+    .section-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 20px 22px;
+      margin-bottom: 20px;
+      background: #fff;
+    }
+
+    .section-heading {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+      border-bottom: 1px solid #e8e8e8;
+      padding-bottom: 7px;
+      margin-bottom: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-heading .section-icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: #333;
+      color: #fff;
+      font-size: 9px;
+      text-align: center;
+      line-height: 18px;
+      border-radius: 3px;
+      margin-right: 7px;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       LISTS
+    ═══════════════════════════════════════════════════ */
+    .content-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .content-list li {
+      padding: 3px 0 3px 16px;
+      position: relative;
+      font-size: 12.5px;
+      color: #2a2a2a;
+      line-height: 1.6;
+    }
+
+    .content-list li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: #666;
+      font-weight: 700;
+    }
+
+    .content-list.compact li {
+      padding: 2px 0 2px 16px;
+      font-size: 12px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       TABLES
+    ═══════════════════════════════════════════════════ */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .data-table th {
+      background: #f0f0f0;
+      color: #1a1a1a;
+      font-weight: 700;
+      padding: 8px 12px;
+      text-align: left;
+      border: 1px solid #ccc;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .data-table td {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+      color: #2a2a2a;
+      line-height: 1.55;
+    }
+
+    .data-table tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .data-table .label-col {
+      font-weight: 600;
+      background: #f5f5f5;
+      width: 28%;
+      color: #333;
+    }
+
+    .data-table .before-col {
+      color: #555;
+      width: 36%;
+    }
+
+    .data-table .after-col {
+      color: #1a1a1a;
+      width: 36%;
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       METRICS / KPI CHIPS
+    ═══════════════════════════════════════════════════ */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .metric-chip {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 12px 14px;
+      background: #f9f9f9;
+    }
+
+    .metric-chip .metric-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #888;
+      margin-bottom: 5px;
+    }
+
+    .metric-chip .metric-value {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .metric-chip .metric-note {
+      font-size: 10px;
+      color: #777;
+      margin-top: 3px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       INLINE CODE / TECH TAGS
+    ═══════════════════════════════════════════════════ */
+    .tech-tag {
+      display: inline-block;
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      padding: 1px 6px;
+      font-size: 10.5px;
+      font-family: "Courier New", monospace;
+      color: #333;
+      margin: 1px 2px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       CHALLENGE / SOLUTION PAIRS
+    ═══════════════════════════════════════════════════ */
+    .cs-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+
+    .cs-challenge {
+      padding: 10px 14px;
+      background: #fafafa;
+      border-right: 1px solid #ddd;
+    }
+
+    .cs-solution {
+      padding: 10px 14px;
+      background: #fff;
+    }
+
+    .cs-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SUB MODULE HEADER
+    ═══════════════════════════════════════════════════ */
+    .sub-module-header {
+      background: #f2f2f2;
+      border-left: 3px solid #888;
+      padding: 10px 16px;
+      margin: 28px 0 16px;
+    }
+
+    .sub-module-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .sub-module-meta {
+      font-size: 11px;
+      color: #666;
+      margin-top: 3px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       TWO-COLUMN LAYOUT
+    ═══════════════════════════════════════════════════ */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       STACK BADGE LIST
+    ═══════════════════════════════════════════════════ */
+    .stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       NO-PRINT UTILITY
+    ═══════════════════════════════════════════════════ */
+    .no-print { /* shown on screen only */ }
+
+    /* ═══════════════════════════════════════════════════
+       DIVIDER
+    ═══════════════════════════════════════════════════ */
+    .divider {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 22px 0;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       FUTURE SCOPE CALLOUT
+    ═══════════════════════════════════════════════════ */
+    .callout {
+      border: 1px dashed #bbb;
+      border-radius: 4px;
+      padding: 14px 18px;
+      background: #fefefe;
+      font-size: 12px;
+      color: #444;
+    }
+
+    .callout-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #888;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PRINT MEDIA
+    ═══════════════════════════════════════════════════ */
+    @media print {
+      html { font-size: 11.5px; }
+
+      body {
+        margin: 0;
+        background: #fff;
+        color: #000;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page-wrapper {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      #print-header {
+        display: block;
+      }
+
+      #print-footer {
+        display: flex;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      /* Cover page fill */
+      .cover-page {
+        min-height: 100vh;
+        page-break-after: always;
+        border: none;
+      }
+
+      /* TOC on its own page */
+      .toc-page {
+        page-break-before: always;
+        page-break-after: always;
+      }
+
+      /* Each module starts on a new page */
+      .module-page {
+        page-break-before: always;
+      }
+
+      /* Avoid orphaned section headings */
+      .section-card {
+        page-break-inside: avoid;
+      }
+
+      .cs-pair {
+        page-break-inside: avoid;
+      }
+
+      .data-table {
+        page-break-inside: avoid;
+      }
+
+      .sub-module-header {
+        page-break-after: avoid;
+      }
+
+      /* Print table style */
+      .data-table th {
+        background: #e8e8e8 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .data-table tr:nth-child(even) td {
+        background: #f5f5f5 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .module-header {
+        background: #f2f2f2 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .metric-chip {
+        background: #f5f5f5 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      @page {
+        margin: 22mm 18mm 22mm 18mm;
+        size: A4;
+      }
+
+      @page :first {
+        margin: 10mm;
+      }
+    }
+
+    @page {
+      margin: 22mm 18mm 22mm 18mm;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     PRINT RUNNING HEADER / FOOTER
+════════════════════════════════════════════════════ -->
+<div id="print-header">
+  Maharashtra State Board of Technical Education — Commercial Changes &amp; Technology Upgrades 2025–26 | CONFIDENTIAL
+</div>
+<div id="print-footer" style="display:none;">
+  <span>MSBTE — Internal Report | 2025–26</span>
+  <span>Page <span class="page-num"></span></span>
+</div>
+
+<div class="page-wrapper">
+
+<!-- ════════════════════════════════════════════════════
+     COVER PAGE
+════════════════════════════════════════════════════ -->
+<div class="cover-page">
+  <div class="cover-logo-placeholder">MSBTE</div>
+  <div class="cover-org">Maharashtra State Board of Technical Education</div>
+  <div class="cover-rule"></div>
+  <div class="cover-title">Commercial Changes, Business Impact &amp; Technology Upgrades</div>
+  <div class="cover-subtitle">Academic Year 2025–26 &nbsp;|&nbsp; Summer 2026 Examination Cycle</div>
+
+  <div class="cover-meta-grid">
+    <div class="cover-meta-item">
+      <label>Document Type</label>
+      <span>Internal Technical Report</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Prepared Date</label>
+      <span>May 2026</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Scope</label>
+      <span>All Platform Modules</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Classification</label>
+      <span>Confidential</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Total Modules Covered</label>
+      <span>9 Core Modules + Frontend Platform</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Version</label>
+      <span>1.0</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     TABLE OF CONTENTS
+════════════════════════════════════════════════════ -->
+<div class="toc-page">
+  <div class="toc-title">Table of Contents</div>
+  <ul class="toc-list">
+    <li><span class="toc-num">1.</span><span class="toc-label">MSBTE Admin Dashboard</span></li>
+    <li><span class="toc-num">2.</span><span class="toc-label">Exam Form — Backend (Node.js)</span></li>
+    <li><span class="toc-num">3.</span><span class="toc-label">Theory E-Marksheet — Frontend</span></li>
+    <li><span class="toc-num">4.</span><span class="toc-label">Non-Theory E-Marksheet — Frontend</span></li>
+    <li><span class="toc-num">5.</span><span class="toc-label">E-Marksheet — Backend (Node.js)</span></li>
+    <li><span class="toc-num">6.</span><span class="toc-label">E-Marksheet Admin — Backend (Python / Django)</span></li>
+    <li><span class="toc-num">7.</span><span class="toc-label">Timetable — Frontend</span></li>
+    <li><span class="toc-num">8.</span><span class="toc-label">Timetable — Backend (Node.js)</span></li>
+    <li><span class="toc-num">9.</span><span class="toc-label">Search Institute — Backend (Node.js)</span></li>
+    <li><span class="toc-num">10.</span><span class="toc-label">Frontend Platform — All Modules (Sub-module breakdown)</span></li>
+    <li class="toc-sub"><span class="toc-num">10.1</span><span class="toc-label">Affiliation</span></li>
+    <li class="toc-sub"><span class="toc-num">10.2</span><span class="toc-label">Certificate of Eligibility (COE)</span></li>
+    <li class="toc-sub"><span class="toc-num">10.3</span><span class="toc-label">Exam Form (Frontend)</span></li>
+    <li class="toc-sub"><span class="toc-num">10.4</span><span class="toc-label">Copy Case</span></li>
+    <li class="toc-sub"><span class="toc-num">10.5</span><span class="toc-label">Exemption</span></li>
+    <li class="toc-sub"><span class="toc-num">10.6</span><span class="toc-label">Scholarship</span></li>
+    <li class="toc-sub"><span class="toc-num">10.7</span><span class="toc-label">Stationery</span></li>
+    <li class="toc-sub"><span class="toc-num">10.8</span><span class="toc-label">Enrollment</span></li>
+    <li class="toc-sub"><span class="toc-num">10.9</span><span class="toc-label">ABC ID</span></li>
+    <li class="toc-sub"><span class="toc-num">10.10</span><span class="toc-label">Search Institute (Frontend)</span></li>
+    <li class="toc-sub"><span class="toc-num">10.11</span><span class="toc-label">Digital Evaluation</span></li>
+    <li class="toc-sub"><span class="toc-num">10.12</span><span class="toc-label">DC–EC–CI (RBTE)</span></li>
+    <li class="toc-sub"><span class="toc-num">10.13</span><span class="toc-label">RAC</span></li>
+    <li class="toc-sub"><span class="toc-num">10.14</span><span class="toc-label">E-Marksheet (Frontend RBTE)</span></li>
+  </ul>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 1 — MSBTE ADMIN DASHBOARD
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 01</div>
+    <div class="module-title">MSBTE Admin Dashboard</div>
+    <div class="module-subtitle">Django-based admin &amp; operator portal — Module Control Panel, RBTE / institute-facing workflows</div>
+  </div>
+
+  <!-- Commercial Changes -->
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes</div>
+    <ul class="content-list">
+      <li>Exam-cycle operations updated for Summer 2026 (S26): <span class="tech-tag">msbte_config.py</span> updated with new exam numbers, timetable/marksheet/emarksheet/RAC/confirmation table names, and staging DB names (e.g. <span class="tech-tag">mdb_s26</span>).</li>
+      <li>Seating chart flows introduced — institute/RBTE flows, NIL handling, corrections, and confirmations management.</li>
+      <li>ABC ID reports and statistics added; photo correction and bulk/single photo download workflows.</li>
+      <li>E-Marksheet RBTE reports, EC–DC–CI module, and distribution reports added.</li>
+      <li>Affiliation admin expanded: new institute onboarding, affiliation removal, history/detail, and course history views.</li>
+      <li>Enrollment workflows: candidate search and date-wise confirmation management.</li>
+      <li>Circular management: EC/DC/SC options and active/inactive toggle.</li>
+      <li>RBTE reporting: fees, COB, inventory, detention, malpractices, and remuneration revision reports.</li>
+      <li>Bulk email and template updates for Summer 2026 examination cycle.</li>
+      <li>Bulk candidate registration with runtime table names and logging improvements.</li>
+      <li>DTE data preparation flows and hall ticket preparation workflows.</li>
+      <li>Two-factor authentication (2FA) added for admin group users.</li>
+      <li>Module Control Panel: per-module link visibility configuration via JSON-backed <span class="tech-tag">update_module_config</span>.</li>
+    </ul>
+  </div>
+
+  <!-- Business Impact -->
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">B</span>Business / Operational Impact</div>
+    <ul class="content-list">
+      <li>Session timeout extended: auto-logout inactivity 15 min → 30 min → 50 min (operational convenience improvement).</li>
+      <li>Centralized <span class="tech-tag">msbte_config</span>-driven table names eliminate hard-coded season drift errors when DB objects are renamed per exam cycle.</li>
+      <li>Print/export/navigation improvements across reports increase operational efficiency for RBTE operators.</li>
+      <li>Superuser SQL visibility on select reports improves support resolution speed.</li>
+      <li>752 commits delivered from January to May 2026 — significant velocity indicator for the exam cycle.</li>
+    </ul>
+  </div>
+
+  <!-- Technical Enhancements -->
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">T</span>Technical Enhancements / Upgrades</div>
+    <div class="stack-list">
+      <span class="tech-tag">Django ≥ 3.2.25</span>
+      <span class="tech-tag">Celery 5.3.4</span>
+      <span class="tech-tag">Redis ≥ 5.0.1</span>
+      <span class="tech-tag">django-celery-beat 2.5.x</span>
+      <span class="tech-tag">mysql-connector-python ≥ 9</span>
+      <span class="tech-tag">PyMySQL 1.1.0</span>
+      <span class="tech-tag">DRF ≥ 3.14</span>
+      <span class="tech-tag">PyJWT ≥ 2.8</span>
+      <span class="tech-tag">pandas ≥ 2.1</span>
+      <span class="tech-tag">SQLAlchemy ≥ 2</span>
+      <span class="tech-tag">django-otp</span>
+      <span class="tech-tag">LangChain / LangGraph</span>
+      <span class="tech-tag">ChromaDB</span>
+      <span class="tech-tag">sentence-transformers</span>
+      <span class="tech-tag">GitHub Actions</span>
+    </div>
+    <ul class="content-list" style="margin-top:12px;">
+      <li>MySQL via <span class="tech-tag">connector/PyMySQL</span>: query refactors, dynamic table names, strict SQL mode toggling during bulk affiliation enrollment.</li>
+      <li>Node API for exam form configuration and affiliation views; JWT-protected report views added.</li>
+      <li>New Django apps: <span class="tech-tag">dashboard/</span> and <span class="tech-tag">data_prepration/</span>; modular URLs/templates per subdomain.</li>
+      <li>New decorator: <span class="tech-tag">@jwt_report_authorized</span> with role-based access lists.</li>
+      <li>LangChain/LangGraph RAG-based chatbot pathway introduced for intelligent query assistance.</li>
+    </ul>
+  </div>
+
+  <div class="two-col">
+    <!-- Architecture -->
+    <div class="section-card">
+      <div class="section-heading"><span class="section-icon">A</span>Architecture Improvements</div>
+      <ul class="content-list compact">
+        <li>Django monolith with clearer domain modularization — exam/affiliation/seating/enrollment packages.</li>
+        <li>Celery + Redis for async task execution on large report and data-prep paths.</li>
+        <li>Pandas used for report/data preparation performance.</li>
+        <li>JSON module configs for control-panel-driven feature flags.</li>
+        <li>Repeated refactor commits on seating chart and fees/SQL.</li>
+      </ul>
+    </div>
+
+    <!-- Security -->
+    <div class="section-card">
+      <div class="section-heading"><span class="section-icon">S</span>Security Enhancements</div>
+      <ul class="content-list compact">
+        <li><span class="tech-tag">@jwt_report_authorized(allowed_roles=[...])</span> replaces blanket <span class="tech-tag">@login_required</span> on RBTE/eligibility/report code.</li>
+        <li>TOTP 2FA implemented via <span class="tech-tag">django-otp</span> stack for admin group.</li>
+        <li>HTTP hardening: Origin / Content-Type headers on password-related views.</li>
+        <li>Cache-control added on exam form API paths.</li>
+        <li>SQL LIKE <span class="tech-tag">%%</span> correction in ABC ID views.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Challenges & Solutions -->
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">X</span>Challenges &amp; Solutions</div>
+    <div class="cs-pair">
+      <div class="cs-challenge">
+        <div class="cs-label">Challenge</div>
+        Seasonal schema churn (S25 → S26): timetable/marks/confirmation/RAC table renames across many files.
+      </div>
+      <div class="cs-solution">
+        <div class="cs-label">Solution</div>
+        Centralized <span class="tech-tag">msbte_config.py</span> constants; views read config instead of literals, reducing scattered edits.
+      </div>
+    </div>
+    <div class="cs-pair">
+      <div class="cs-challenge">
+        <div class="cs-label">Challenge</div>
+        MySQL strict mode conflicts with bulk inserts during affiliation enrollment preparation.
+      </div>
+      <div class="cs-solution">
+        <div class="cs-label">Solution</div>
+        Temporary strict-mode disable around controlled inserts; explicit SQL escaping and query simplification.
+      </div>
+    </div>
+    <div class="cs-pair">
+      <div class="cs-challenge">
+        <div class="cs-label">Challenge</div>
+        Scheme-change COB loop risk causing infinite processing on skipped enrollments.
+      </div>
+      <div class="cs-solution">
+        <div class="cs-label">Solution</div>
+        Task logic updated to guard skipped enrollments and avoid reprocessing loops.
+      </div>
+    </div>
+  </div>
+
+  <!-- Before vs After -->
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">V</span>Before vs After Summary</div>
+    <table class="data-table">
+      <thead>
+        <tr><th class="label-col">Aspect</th><th class="before-col">Before (Jan 2026)</th><th class="after-col">After (May 2026)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label-col">Session Timeout</td><td class="before-col">15 minutes inactivity</td><td class="after-col">50 minutes inactivity</td></tr>
+        <tr><td class="label-col">Module Surface</td><td class="before-col">Initial import + baseline auto-deploy</td><td class="after-col">Broad MSBTE admin coverage: module control panel, RBTE/institute reports, seating chart suite, ABC ID, photo correction, E-marksheet, affiliation admin</td></tr>
+        <tr><td class="label-col">Authentication</td><td class="before-col">Login-required decorator only</td><td class="after-col">JWT role-scoped reports + TOTP 2FA for admin group</td></tr>
+        <tr><td class="label-col">Exam Config</td><td class="before-col">Hard-coded table/DB references</td><td class="after-col">Centralized msbte_config.py constants for all season-specific names</td></tr>
+        <tr><td class="label-col">Bulk Operations</td><td class="before-col">Basic bulk registration</td><td class="after-col">Bulk email, bulk candidate registration with runtime logging, idempotent patterns</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Metrics -->
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">M</span>Metrics / KPIs</div>
+    <div class="metrics-grid">
+      <div class="metric-chip"><div class="metric-label">Git Commits (2026 YTD)</div><div class="metric-value">752</div><div class="metric-note">Jan 2026 – May 2026</div></div>
+      <div class="metric-chip"><div class="metric-label">Session Timeout Change</div><div class="metric-value">15 → 50 min</div><div class="metric-note">3 progressive increments</div></div>
+      <div class="metric-chip"><div class="metric-label">2FA</div><div class="metric-value">Enabled</div><div class="metric-note">TOTP via django-otp</div></div>
+      <div class="metric-chip"><div class="metric-label">API Response Time</div><div class="metric-value">N/A</div><div class="metric-note">Not benchmarked in-repo</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 2 — EXAM FORM BACKEND
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 02</div>
+    <div class="module-title">Exam Form — Backend</div>
+    <div class="module-subtitle">Node.js / Express — Candidate, Institute &amp; RBTE exam form application workflows</div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes</div>
+    <ul class="content-list">
+      <li><strong>Elective completeness rule:</strong> Regular form now persists selected electives with <span class="tech-tag">flag='Y'</span> and remaining/unselected electives as optional with <span class="tech-tag">flag='O'</span> in <span class="tech-tag">exam_subject_s</span> via <span class="tech-tag">insertOptionalElectiveSubjects</span>.</li>
+      <li><strong>Idempotent elective backfill:</strong> NOT IN guard on existing exam_subject_s elective records prevents duplicates on rerun/reprocessing.</li>
+      <li><strong>Exemption handling:</strong> Main subjects updated to <span class="tech-tag">flag='E'</span> for exempted papers via <span class="tech-tag">updateExemptionFlag</span>.</li>
+      <li><strong>Feature-window enforcement:</strong> Apply/confirm/cancel gated by centralized config flags (e.g. <span class="tech-tag">START_EXAMFORM_W_*</span>) — hard close/open control for operations.</li>
+      <li><strong>Role-based workflows:</strong> Separate flows for Candidate / Institute / RBTE with distinct routes and access control.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">B</span>Business / Operational Impact</div>
+    <ul class="content-list">
+      <li>Eliminated cases where electives were absent in <span class="tech-tag">exam_subject_s</span> after selection — now guaranteed: selected Y + remaining O.</li>
+      <li>Reprocessing is duplicate-proof (idempotent insert), reducing manual DB cleanup during retries to zero.</li>
+      <li>Config-based gating reduces "link open/close" manual interventions to zero-code operational toggles.</li>
+      <li>Set-based INSERT … SELECT for regular flow subjects reduces per-subject DB round trips significantly.</li>
+      <li>In-module caching (Map) for repeated lookups: paper-code block and exam-center resolution reduce repeated DB hits.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">T</span>Technical Enhancements / Upgrades</div>
+    <div class="stack-list">
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">Express</span>
+      <span class="tech-tag">JWT Auth</span>
+      <span class="tech-tag">Joi Validation</span>
+      <span class="tech-tag">MySQL</span>
+    </div>
+    <ul class="content-list" style="margin-top:12px;">
+      <li>Subject inserts standardized as INSERT … SELECT from <span class="tech-tag">course_sub_marks / course_sub_marks_lateral</span>.</li>
+      <li><span class="tech-tag">paper_code</span> mapped consistently from <span class="tech-tag">paper_code_eq</span> in marks master during inserts.</li>
+      <li>Copy-table and BK-table write paths added (<span class="tech-tag">exam_subject_s_copy</span>, <span class="tech-tag">exam_subject_w_bk</span>) controlled via <span class="tech-tag">EXAM_FORM_W_BK</span> config.</li>
+      <li>New endpoints: <span class="tech-tag">/beforeApply</span>, <span class="tech-tag">/apply</span>, <span class="tech-tag">/applyNext</span> with X-form variants and shared controller dispatch.</li>
+      <li><span class="tech-tag">applyNext</span> implements copy-then-delete on re-apply: move rows to *_copy, delete from live table, then reinsert.</li>
+    </ul>
+  </div>
+
+  <div class="two-col">
+    <div class="section-card">
+      <div class="section-heading"><span class="section-icon">A</span>Architecture Improvements</div>
+      <ul class="content-list compact">
+        <li>Exam form split by domain roles: <span class="tech-tag">resources/candidate|institutes|rbte/examform/*</span></li>
+        <li>Shared core under <span class="tech-tag">resources/shared/*</span>.</li>
+        <li>Query strings and business logic separated (controller → utils/service → query map).</li>
+        <li>Centralized SQL in <span class="tech-tag">shared/query.js</span> and <span class="tech-tag">utils/functions/examform/query.js</span>.</li>
+        <li>Dynamic subject table resolution by form type + block.</li>
+      </ul>
+    </div>
+    <div class="section-card">
+      <div class="section-heading"><span class="section-icon">S</span>Security Enhancements</div>
+      <ul class="content-list compact">
+        <li>JWT-based role checks: <span class="tech-tag">candidateAuth</span>, <span class="tech-tag">instituteAuth</span>, <span class="tech-tag">rbteAuth</span> per route.</li>
+        <li>Strict Joi schemas: enrollment format, course/year/master codes, appear code, exam_no length, block validation.</li>
+        <li>Feature flag gating (<span class="tech-tag">requireConfig</span>): hard 403 + explicit disabled flag list prevents unauthorized access outside configured window.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">X</span>Challenges &amp; Solutions</div>
+    <div class="cs-pair">
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>Only selected electives were stored; unselected electives absent from exam_subject_s caused downstream commercial/reporting mismatches.</div>
+      <div class="cs-solution"><div class="cs-label">Solution</div>Implemented <span class="tech-tag">insertOptionalElectiveSubjects</span> with flag='O' and NOT IN guard on existing electives.</div>
+    </div>
+    <div class="cs-pair">
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>Multi-form complexity: Regular vs X vs Block-G needed different persistence rules and table targets.</div>
+      <div class="cs-solution"><div class="cs-label">Solution</div>Dynamic routing + table selection encapsulated based on r_x + block; block-specific insert/replace for X Block-G.</div>
+    </div>
+    <div class="cs-pair">
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>Reprocessing could create duplicates or require manual cleanup without a guarded insert strategy.</div>
+      <div class="cs-solution"><div class="cs-label">Solution</div>applyNext flow copies existing rows to _copy and deletes before reinsert, preserving audit while keeping live table clean.</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">V</span>Before vs After Summary</div>
+    <table class="data-table">
+      <thead><tr><th class="label-col">Aspect</th><th class="before-col">Before</th><th class="after-col">After</th></tr></thead>
+      <tbody>
+        <tr><td class="label-col">Elective Dataset</td><td class="before-col">Incomplete — only selected electives stored in exam_subject_s</td><td class="after-col">Complete — selected (Y) + remaining optional (O) both stored</td></tr>
+        <tr><td class="label-col">Reprocessing Safety</td><td class="before-col">Risk of duplicates / required manual DB cleanup</td><td class="after-col">Idempotent via NOT IN guard + copy/delete reapply strategy</td></tr>
+        <tr><td class="label-col">Feature Control</td><td class="before-col">More manual link open/close operations</td><td class="after-col">Config flags + strict Joi validation + hard 403 enforcement</td></tr>
+        <tr><td class="label-col">Subject Inserts</td><td class="before-col">Per-subject inserts for regular flow</td><td class="after-col">Set-based INSERT … SELECT (single statement per category)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 3 — THEORY E-MARKSHEET FRONTEND
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 03</div>
+    <div class="module-title">Theory E-Marksheet — Frontend</div>
+    <div class="module-subtitle">React SPA — Institute-centric theory EMS UI (<span class="tech-tag" style="font-size:11px;">ems_th_frontend_app</span>, Vite 6.x, base path <span class="tech-tag" style="font-size:11px;">/MES012026_TH</span>)</div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes</div>
+    <ul class="content-list">
+      <li><strong>Role refactor:</strong> Navigation and pages migrated from "examiner" to "institute" structure, aligning workflows to institute-centric operations.</li>
+      <li><strong>Theory e-marksheet flows:</strong> Automated e-marksheets, manual examiner marksheet creation/listing, paper code management, receipt of answerbook (digital evaluation).</li>
+      <li><strong>Sheet allocation/confirmation reports:</strong> Reports for sheets filled but not confirmed with special codes 401, 403, 409 added with pagination/loading.</li>
+      <li><strong>Special marks code rules (iterative):</strong> Allowed codes evolved — 401–408 → subsets 404/406/407 → 401, 403, 404, 406, 407; marks input set read-only for tighter form control.</li>
+      <li><strong>Academic calendar updates:</strong> Season labels updated Summer 2025 → Winter 2025 → Summer 2026; Vite base path now <span class="tech-tag">/MES012026_TH</span>.</li>
+      <li><strong>Config-driven UI:</strong> Feature visibility via env (paper code list, receipt of answerbook, digital evaluation status, <span class="tech-tag">VITE_ALLOW_ALL_CANCEL_SUBJECTS</span>, <span class="tech-tag">VITE_ROWS_PER_PAGE_IN_DASHBOARD</span>).</li>
+      <li><strong>Sign-in improvements:</strong> Numeric-only institute username, password-reset redirect on verification errors.</li>
+      <li><strong>Home/filters:</strong> "Select ALL courses" in DateFilterForm; latest news copy updates; accreditation text consistency.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">B</span>Business / Operational Impact</div>
+    <ul class="content-list">
+      <li>Loading bars for paper date/day fetch; loading toast on marks submit with dismiss on success/error.</li>
+      <li>Data correctness: Fixes for special-code indexing in ReceiptTable, normalization of special-code arrays to flat rows.</li>
+      <li>CI/CD (GitHub Actions) for dev/stage/live with server/path updates and yarn deploy-live scripts.</li>
+      <li>ESLint auto-fix in deploy workflow reduces failed builds from lint noise.</li>
+      <li>Default dashboard pagination moved to 50 rows and made env-configurable.</li>
+      <li>117 commits since 2025-01-01 for this module.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">T</span>Technical Enhancements / Upgrades</div>
+    <div class="stack-list">
+      <span class="tech-tag">React 18.3.1</span>
+      <span class="tech-tag">Vite ^6.3.5</span>
+      <span class="tech-tag">@vitejs/plugin-react-swc</span>
+      <span class="tech-tag">Node 20.x</span>
+      <span class="tech-tag">MUI 5</span>
+      <span class="tech-tag">Redux Toolkit / RTK Query 2.5.1</span>
+      <span class="tech-tag">React Router 6.26</span>
+      <span class="tech-tag">Axios 1.7</span>
+      <span class="tech-tag">Auth0 React 2.2</span>
+      <span class="tech-tag">AWS Amplify 6.5</span>
+      <span class="tech-tag">Socket.IO client 4.8</span>
+      <span class="tech-tag">Zod</span>
+      <span class="tech-tag">React Hook Form</span>
+      <span class="tech-tag">ExcelJS</span>
+      <span class="tech-tag">@react-pdf/renderer</span>
+    </div>
+    <ul class="content-list" style="margin-top:12px;">
+      <li>RTK Query apiSlice: new/changed marksheet mutations and queries, <span class="tech-tag">getFileByName</span>, cleanup of unused endpoints.</li>
+      <li>Auth paths evolved: <span class="tech-tag">/auth2/checkUser</span>, <span class="tech-tag">/auth2/login</span>; IP query uses <span class="tech-tag">/auth/getIp</span>.</li>
+      <li>localStorage key standardized: <span class="tech-tag">token</span> → <span class="tech-tag">authToken</span>.</li>
+      <li>Large refactors: ReceiptTable, report pages, Marksheet / ManualMarksheet, apiSlice formatting.</li>
+      <li>Vite dependency bumped: 6.3.6 → 6.4.1 (Nov 2025).</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">V</span>Before vs After Summary</div>
+    <table class="data-table">
+      <thead><tr><th class="label-col">Aspect</th><th class="before-col">Before (Sept 2025)</th><th class="after-col">After (2026)</th></tr></thead>
+      <tbody>
+        <tr><td class="label-col">UI Orientation</td><td class="before-col">Examiner-oriented naming/paths</td><td class="after-col">Institute-first structure; institute routes and navigation</td></tr>
+        <tr><td class="label-col">Deployment Base</td><td class="before-col">Generic path</td><td class="after-col">/MES012026_TH with env-driven academic year config</td></tr>
+        <tr><td class="label-col">Marks Validation</td><td class="before-col">Thinner special-code handling</td><td class="after-col">Iterative refinement to 401, 403, 404, 406, 407 with read-only enforcement</td></tr>
+        <tr><td class="label-col">CI/CD</td><td class="before-col">Manual deployment steps</td><td class="after-col">GitHub Actions for dev/stage/live with ESLint auto-fix</td></tr>
+        <tr><td class="label-col">Pagination</td><td class="before-col">Fixed rows per page</td><td class="after-col">Env-configurable (default 50 rows)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 4 — NON-THEORY E-MARKSHEET FRONTEND
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 04</div>
+    <div class="module-title">Non-Theory E-Marksheet — Frontend</div>
+    <div class="module-subtitle">React SPA — Non-Theory EMS for HOD, Examiner, Principal, Institute workflows (<span class="tech-tag" style="font-size:11px;">ems_nth_frontend_app</span>)</div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes</div>
+    <ul class="content-list">
+      <li><strong>Feature gating via env flags:</strong> <span class="tech-tag">VITE_SHOW_*</span> flags for HOD, examiner, principal, institute, automated/manual e-marksheets, reports, message system, confirmation flows, maintenance bypass — phased rollout across dev/staging/production.</li>
+      <li><strong>Exam naming updates:</strong> Winter 2025 Non-AICTE Non-Theory → Summer 2026 / Special Term strings across principal, examiner, and HOD reports.</li>
+      <li><strong>Non-AICTE Non-Theory entry:</strong> <span class="tech-tag">VITE_SUBFOLDER_NTH_NONAICTE</span> added; nav link opens in new tab with <span class="tech-tag">rel="noopener"</span>.</li>
+      <li><strong>Marks validation (iterative):</strong> 0–100 + special 401 → 401–408 → 0–200 → 0–1000 with 401-only in final fix; 401 allowed for specific I-schemes.</li>
+      <li><strong>External examiner/HOD flows:</strong> "Other" designation/qualification options, Aadhar paste/limit instructions, seat number exactly 6 digits, Aadhar 12 digits, external course/institute code input rules.</li>
+      <li><strong>Maintenance mode:</strong> Time-windowed <span class="tech-tag">MaintenanceMode</span> wrapper with env-driven force/disable flags.</li>
+      <li>Detention submit disabled when no detained candidates.</li>
+      <li>Username max length extended from 10 → 11 characters.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">B</span>Business / Operational Impact</div>
+    <ul class="content-list">
+      <li>Feature flags eliminate code deploys for open/close login, e-marksheet modes, reports, and maintenance windows.</li>
+      <li>RTK Query <span class="tech-tag">refetchOnFocus / refetchOnMountOrArgChange</span> on detention/marksheet sections ensures data freshness.</li>
+      <li>Less chatty polling: institute mobile forms refactored to drop unnecessary polling.</li>
+      <li>Clearer UX: toasts and disabled submit states on dialogs; centered sign-in errors more specific.</li>
+      <li>Print/reporting: report table normalization and print path fixes reduce missing rows when printing.</li>
+      <li>674 commits since 2025-01-01 for this module.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">T</span>Technical Enhancements / Upgrades</div>
+    <div class="stack-list">
+      <span class="tech-tag">React 18.3.x</span>
+      <span class="tech-tag">Vite 6.3.x</span>
+      <span class="tech-tag">MUI 5 / MUI X 7</span>
+      <span class="tech-tag">Redux Toolkit 2.5</span>
+      <span class="tech-tag">Axios 1.7</span>
+      <span class="tech-tag">React Router 6.26</span>
+      <span class="tech-tag">Zod 3.23</span>
+      <span class="tech-tag">React Hook Form 7.52</span>
+      <span class="tech-tag">@react-pdf/renderer 3.4</span>
+      <span class="tech-tag">ESLint 8</span>
+    </div>
+    <ul class="content-list" style="margin-top:12px;">
+      <li>Vite build: <span class="tech-tag">modulePreload: false</span> to resolve Cloudflare Rocket Loader conflicts with module scripts.</li>
+      <li>Custom <span class="tech-tag">cloudflareRocketLoaderFix</span> helper in vite.config.js for data-cfasync pattern.</li>
+      <li>Axios instance updated to prefer <span class="tech-tag">VITE_SERVER_URL</span>.</li>
+      <li>ESLint auto-fix in CI workflows.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">X</span>Challenges &amp; Solutions</div>
+    <div class="cs-pair">
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>Evolving marks rules: multiple successive commits changing allowed ranges (100 → 200 → 1000 + code 401) due to changing examination/registrar policies.</div>
+      <div class="cs-solution"><div class="cs-label">Solution</div>Schema/UI alignment for marks with user-visible error text and button loading/disabled states; final validation: 0–1000 or code 401.</div>
+    </div>
+    <div class="cs-pair">
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>Cloudflare Rocket Loader interfering with Vite modulepreload / script loading in the SPA.</div>
+      <div class="cs-solution"><div class="cs-label">Solution</div>Vite build modulePreload: false + Rocket Loader–related HTML transforms and custom plugin in repo.</div>
+    </div>
+    <div class="cs-pair">
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>Feature-flag matrix complexity: many combinations of examiner/HOD/institute/manual/automation/maintenance across three environments.</div>
+      <div class="cs-solution"><div class="cs-label">Solution</div>Feature flags in .env.* for controlled exposure; MaintenanceMode time windows + force flags for controlled downtime messaging.</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">V</span>Before vs After Summary</div>
+    <table class="data-table">
+      <thead><tr><th class="label-col">Aspect</th><th class="before-col">Before (Feb 2025)</th><th class="after-col">After (May 2026)</th></tr></thead>
+      <tbody>
+        <tr><td class="label-col">Marks Ceiling</td><td class="before-col">100 (with special 401)</td><td class="after-col">0–1000 or code 401 (I-scheme specific)</td></tr>
+        <tr><td class="label-col">Username Max Length</td><td class="before-col">10 characters</td><td class="after-col">11 characters</td></tr>
+        <tr><td class="label-col">Non-AICTE Entry</td><td class="before-col">Not available</td><td class="after-col">Dedicated subfolder URL (VITE_SUBFOLDER_NTH_NONAICTE), opens in new tab with noopener</td></tr>
+        <tr><td class="label-col">Maintenance Mode</td><td class="before-col">Not implemented</td><td class="after-col">Time-windowed MaintenanceMode wrapper with force/disable env flags</td></tr>
+        <tr><td class="label-col">Exam Naming</td><td class="before-col">Winter 2025 Non-AICTE strings</td><td class="after-col">Summer 2026 / Special Term across all report titles</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">M</span>Metrics / KPIs</div>
+    <div class="metrics-grid">
+      <div class="metric-chip"><div class="metric-label">Commits (2025 YTD)</div><div class="metric-value">674</div><div class="metric-note">Since 2025-01-01</div></div>
+      <div class="metric-chip"><div class="metric-label">Marks Ceiling Change</div><div class="metric-value">100 → 1000</div><div class="metric-note">Plus special code 401</div></div>
+      <div class="metric-chip"><div class="metric-label">Username Max</div><div class="metric-value">10 → 11</div><div class="metric-note">Characters</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 5 — E-MARKSHEET BACKEND (NODE.JS)
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 05</div>
+    <div class="module-title">E-Marksheet — Backend</div>
+    <div class="module-subtitle">Node.js / Express — Examiner confirmation, PDF generation, ImmuDB audit, bulk UPSERT workflows</div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes</div>
+    <ul class="content-list">
+      <li><strong>S26 season rollout:</strong> Updated confirmation artifacts to follow S26 naming convention — PDF naming <span class="tech-tag">_s26.pdf</span> + supporting table prefix updates.</li>
+      <li><strong>Confirmation workflow hardening:</strong> Examiner confirmation now performs lock-check + already-confirmed check concurrently via <span class="tech-tag">Promise.all</span>, preventing double-confirm or inconsistent state during peak operations.</li>
+      <li><strong>PDF generation resilience:</strong> Confirmation flow treats PDF-service timeouts as recoverable by verifying PDF existence on disk before failing — reduces operational disruptions during load spikes.</li>
+      <li><strong>ImmuDB lock write correctness:</strong> Fixed region-partition lock table name construction (removed underscore before region code) to ensure writes land in the correct final lock table.</li>
+      <li><strong>Data integrity enforcement:</strong> Bulk UPSERT now rejects invalid rows where <span class="tech-tag">seat_no/sr_no</span> are missing — prevents broken <span class="tech-tag">marks_uuid</span> and downstream reconciliation issues.</li>
+      <li><strong>Admin access enablement:</strong> Added <span class="tech-tag">http://emsadmin.4pindia.com</span> to allowed origins to support admin-side operational workflows.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">B</span>Business / Operational Impact</div>
+    <ul class="content-list">
+      <li>PDF timeouts no longer automatically fail confirmation if the PDF is already on disk — reduces avoidable rework and escalations.</li>
+      <li>Parallel prechecks reduce confirmation pre-validation latency from sequential (t1+t2) to approximately max(t1,t2) for that step.</li>
+      <li>Prevents bad lock writes (wrong table) and invalid marks_uuid rows, reducing manual cleanup and retry cycles.</li>
+      <li>Cleaner production observability: structured tracing added during debugging, noisy logs removed after.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">T</span>Technical Enhancements / Upgrades</div>
+    <ul class="content-list">
+      <li>PDF service call timeout increased: <strong>15s → 45s</strong>, plus timeout-recovery logic via disk existence check.</li>
+      <li>Parallelized independent checks using <span class="tech-tag">Promise.all</span>.</li>
+      <li>Added consistent error logging utility for lock/confirmation failures.</li>
+      <li>Base64-encoded binary/control bytes for <span class="tech-tag">enrcrypt_marks</span> before ImmuDB SQL literal transport.</li>
+      <li>Bulk write refactor: excluded DB-derived <span class="tech-tag">marks_uuid</span> from bulk column lists; generate deterministically from <span class="tech-tag">seat_no-sr_no[-C]</span>.</li>
+      <li>Corrected target lock table naming: <span class="tech-tag">${ORPR_OUTPUT_FINAL_LOCK}${regionCode}</span> (region partition).</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">V</span>Before vs After Summary</div>
+    <table class="data-table">
+      <thead><tr><th class="label-col">Aspect</th><th class="before-col">Before</th><th class="after-col">After</th></tr></thead>
+      <tbody>
+        <tr><td class="label-col">PDF Confirmation Reliability</td><td class="before-col">Timeout could fail confirmation even if PDF existed on disk</td><td class="after-col">Timeout recovery via disk check + 45s timeout threshold</td></tr>
+        <tr><td class="label-col">Peak-Time Latency</td><td class="before-col">Sequential prechecks (t1 + t2)</td><td class="after-col">Parallel prechecks via Promise.all (≈ max(t1, t2))</td></tr>
+        <tr><td class="label-col">Lock Table Correctness</td><td class="before-col">Risk of wrong/non-existent region table</td><td class="after-col">Correct region-partition table naming (no leading underscore)</td></tr>
+        <tr><td class="label-col">Data Integrity</td><td class="before-col">Possible invalid marks_uuid inputs from missing seat_no/sr_no</td><td class="after-col">Explicit validation + deterministic marks_uuid generation</td></tr>
+        <tr><td class="label-col">Immutable Write Safety</td><td class="before-col">Binary/control bytes could break SQL literal in ImmuDB</td><td class="after-col">Base64 encoding for safe transport of encrypted marks data</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">M</span>Metrics / KPIs</div>
+    <div class="metrics-grid">
+      <div class="metric-chip"><div class="metric-label">PDF Timeout Threshold</div><div class="metric-value">15s → 45s</div><div class="metric-note">3x increase for resilience</div></div>
+      <div class="metric-chip"><div class="metric-label">Confirmation Precheck</div><div class="metric-value">Sequential → Parallel</div><div class="metric-note">Promise.all reduces step latency to max(t1,t2)</div></div>
+      <div class="metric-chip"><div class="metric-label">Lock Table Errors</div><div class="metric-value">Fixed</div><div class="metric-note">Region partition naming corrected</div></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Future Scope</div>
+    <ul class="content-list compact">
+      <li>Add instrumentation to capture confirmation latency, timeout recovery count, and sheet-lock failure reasons (time-series).</li>
+      <li>Add automated health checks for PDF service + alerting on timeout spikes.</li>
+      <li>Add DB/ImmuDB write benchmarks for bulk UPSERT throughput and error-rate tracking.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 6 — E-MARKSHEET ADMIN (PYTHON/DJANGO)
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 06</div>
+    <div class="module-title">E-Marksheet Admin — Backend</div>
+    <div class="module-subtitle">Python / Django + Celery — Admin workflows, PDF verification, ImmuDB audit, S26 session rollover</div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes</div>
+    <ul class="content-list">
+      <li><strong>S26 session rollover:</strong> Configuration and task logic updated for Summer 2026 / ACA_YEAR "2026–27" and <span class="tech-tag">EXAM_YEAR_VENDER 202601</span>; table constants added for <span class="tech-tag">s26_*</span> datasets (NTH + TH).</li>
+      <li><strong>Role-based landing:</strong> Admin users redirected to new Admin Dashboard; non-admin to vendor report list.</li>
+      <li><strong>Alert dashboard:</strong> Streamlined operational monitoring with KPI counts and "run core reports" JSON payload.</li>
+      <li><strong>PDF verification (NTH):</strong> Shifted to CSV extraction + load-only pipeline (no comparison stage); server1/server2 path modes; improved filename parsing supporting old + new session naming; operational controls for large runs (50K–60K PDFs).</li>
+      <li><strong>Marks string conversion:</strong> Enhanced to generate/import marks-string data into MySQL with post-import verification (row counts, precision checks, mismatch reporting).</li>
+      <li><strong>ImmuDB audit:</strong> Enhanced robustness; region-wise mode support (final-lock + multiple region tables); better pagination and typing behavior.</li>
+      <li><strong>Reporting:</strong> Multiple SQL query updates aligned to S26 session/table naming; templates updated for "Sheet No" display, empty-state layouts, status badges.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">B</span>Business / Operational Impact</div>
+    <ul class="content-list">
+      <li><strong>PDF verification scalability:</strong> Supports 50K–60K PDFs with explicit windowing + cooldown + micro-pauses; capped concurrency (default <span class="tech-tag">PDF_MAX_WORKERS=3</span>, <span class="tech-tag">PDF_WINDOW_SIZE=20000</span>, cooldown 20s) reduces CPU/DB pressure.</li>
+      <li><strong>DB write churn reduced:</strong> Progress updated every 50 files instead of per-file.</li>
+      <li><strong>Dashboard latency:</strong> KPI COUNT queries run in parallel via <span class="tech-tag">ThreadPoolExecutor</span> (4 workers) — wall-clock reduced from ~T1+T2+T3+T4 to ~max(T1..T4).</li>
+      <li><strong>Audit performance:</strong> ImmuDB audit moved to keyset pagination — avoids OFFSET degradation at scale.</li>
+      <li><strong>Stability:</strong> "Safe save" pattern in PDF tasks (retries + connection refresh) reduces task failures from transient DB connectivity.</li>
+      <li>Prevented immediate post-login idle logout by clearing stale inactivity timestamp.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">T</span>Technical Enhancements / Upgrades</div>
+    <div class="stack-list">
+      <span class="tech-tag">Django</span>
+      <span class="tech-tag">Celery 5.3.4</span>
+      <span class="tech-tag">Redis</span>
+      <span class="tech-tag">Channels 4</span>
+      <span class="tech-tag">SQLAlchemy 2.0.35</span>
+      <span class="tech-tag">PyMuPDF</span>
+      <span class="tech-tag">pandas 2+</span>
+      <span class="tech-tag">mysql-connector-python 9+</span>
+      <span class="tech-tag">PyMySQL</span>
+      <span class="tech-tag">djangorestframework</span>
+      <span class="tech-tag">ThreadPoolExecutor</span>
+    </div>
+    <ul class="content-list" style="margin-top:12px;">
+      <li>Offset-based pagination replaced with keyset pagination in ImmuDB audit to eliminate OFFSET growth cost.</li>
+      <li>Direct/raw connection patterns replaced with SQLAlchemy engine usage + lazy DB connection wrapper in views.</li>
+      <li>S26 schema alignment: extensive table/database constant updates (<span class="tech-tag">EMS_DB</span>, <span class="tech-tag">EMSLOCK_DB</span>, <span class="tech-tag">EMS_DB_TH</span>, <span class="tech-tag">s26_*</span> tables).</li>
+      <li>Read-only/select DB config added: dedicated <span class="tech-tag">msbte_select</span> DB connection for controlled access.</li>
+    </ul>
+  </div>
+
+  <div class="two-col">
+    <div class="section-card">
+      <div class="section-heading"><span class="section-icon">A</span>Architecture Improvements</div>
+      <ul class="content-list compact">
+        <li>Functionality increasingly split into app modules (<span class="tech-tag">emarksheet/data_activity_link/*</span>) instead of root emarksheet app.</li>
+        <li>Concurrency controls + parallel query execution + keyset pagination enable safer operation on large datasets.</li>
+        <li>Centralized S26 constants in <span class="tech-tag">msbte_config.py</span> reduced hardcoded table-name drift.</li>
+      </ul>
+    </div>
+    <div class="section-card">
+      <div class="section-heading"><span class="section-icon">S</span>Security Enhancements</div>
+      <ul class="content-list compact">
+        <li><span class="tech-tag">CSRF_TRUSTED_ORIGINS</span> explicitly populated for admin portals.</li>
+        <li>Node attachment service <span class="tech-tag">jwt_secret</span> sourced from environment variables instead of being fixed in code.</li>
+        <li>Server-side <span class="tech-tag">SESSION_COOKIE_AGE</span> aligned to inactivity timeout (35 min).</li>
+        <li>Note: some credentials remain in settings/config files — migration to env vars ongoing.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">V</span>Before vs After Summary</div>
+    <table class="data-table">
+      <thead><tr><th class="label-col">Aspect</th><th class="before-col">Before (S25)</th><th class="after-col">After (S26)</th></tr></thead>
+      <tbody>
+        <tr><td class="label-col">Session Config</td><td class="before-col">S25-centric configs/queries</td><td class="after-col">S26-aligned configs, SQL, and table constants in msbte_config.py</td></tr>
+        <tr><td class="label-col">Dashboard Queries</td><td class="before-col">Sequential KPI COUNT queries (~T1+T2+T3+T4)</td><td class="after-col">Parallel via ThreadPoolExecutor (4 workers) (~max(T1..T4))</td></tr>
+        <tr><td class="label-col">PDF Extraction</td><td class="before-col">Less controlled large-batch processing</td><td class="after-col">Windowed/throttled for 50K–60K PDFs with cooldown + micro-pauses</td></tr>
+        <tr><td class="label-col">ImmuDB Audit</td><td class="before-col">OFFSET-based pagination (slows at scale)</td><td class="after-col">Keyset pagination (avoids OFFSET growth cost)</td></tr>
+        <tr><td class="label-col">Admin UX</td><td class="before-col">No role-based landing</td><td class="after-col">Admin → Admin Dashboard; non-admin → vendor report list</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">M</span>Metrics / KPIs</div>
+    <div class="metrics-grid">
+      <div class="metric-chip"><div class="metric-label">PDF Extraction Scale</div><div class="metric-value">50K–60K</div><div class="metric-note">PDFs supported per run</div></div>
+      <div class="metric-chip"><div class="metric-label">Max PDF Workers</div><div class="metric-value">3</div><div class="metric-note">PDF_MAX_WORKERS default</div></div>
+      <div class="metric-chip"><div class="metric-label">Window Size</div><div class="metric-value">20,000</div><div class="metric-note">PDF_WINDOW_SIZE default</div></div>
+      <div class="metric-chip"><div class="metric-label">Chunk Size (DB insert)</div><div class="metric-value">10,000</div><div class="metric-note">Rows per CSV insert chunk</div></div>
+      <div class="metric-chip"><div class="metric-label">Dashboard KPIs</div><div class="metric-value">Parallel</div><div class="metric-note">4 workers via ThreadPoolExecutor</div></div>
+      <div class="metric-chip"><div class="metric-label">Batch Cooldown</div><div class="metric-value">20s</div><div class="metric-note">Between PDF extraction windows</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 7 — TIMETABLE FRONTEND
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 07</div>
+    <div class="module-title">Timetable — Frontend</div>
+    <div class="module-subtitle">React + RTK Query SPA — Institute/RBTE timetable display, center-wise form, Summer 2026 rollout</div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes</div>
+    <ul class="content-list">
+      <li><strong>Center-wise workflow:</strong> Center-wise form enablement in Home controlled by env flag including production enablement; flag evaluation standardized to numeric.</li>
+      <li><strong>User guidance:</strong> Replaced access-restricted UI with instructional section for "upcoming timetable release" and schedule exploration guidance.</li>
+      <li><strong>Summer 2026 operations:</strong> Env-driven session config updated — exam type change (staging TENTATIVE → FINAL), session dates, and submission deadline corrected to 16/03/2026.</li>
+      <li><strong>Timetable display:</strong> Added reusable date rendering utility for timetable components with updated formatting + styling.</li>
+      <li><strong>UX messaging:</strong> Improved loading/error messages in timetable-related components.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">T</span>Technical Enhancements / Upgrades</div>
+    <ul class="content-list">
+      <li><strong>Migration:</strong> Direct <span class="tech-tag">axios</span> calls scattered across components/forms → Redux Toolkit + <span class="tech-tag">RTK Query</span> for centralized state and API data fetching.</li>
+      <li>Largest refactor: Axios → RTK Query commit: <strong>+459 / -298 LOC</strong>.</li>
+      <li>Modularized timetable date display via shared <span class="tech-tag">renderDate</span> utility (initial add touched 6 files, +45/-5).</li>
+      <li>IP restriction controls: updated production env toggles to enable/disable IP restriction and updated allowed IP lists.</li>
+      <li>Cloudflare Rocket Loader mitigation: custom plugin + HTML adjustments to stop Rocket Loader from rewriting module script/preload tags.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">V</span>Before vs After Summary</div>
+    <table class="data-table">
+      <thead><tr><th class="label-col">Aspect</th><th class="before-col">Before</th><th class="after-col">After</th></tr></thead>
+      <tbody>
+        <tr><td class="label-col">API Fetching</td><td class="before-col">Axios-based, component-level fetching (per-component logic)</td><td class="after-col">RTK Query-based with centralized patterns (caching, loading, error handling)</td></tr>
+        <tr><td class="label-col">Center-wise Form</td><td class="before-col">Not reliably controlled; string vs numeric flag misbehavior</td><td class="after-col">Gated via numeric env config — prod-ready rollout</td></tr>
+        <tr><td class="label-col">Access UX</td><td class="before-col">Generic access-restricted card</td><td class="after-col">Instructional content for restricted/release states</td></tr>
+        <tr><td class="label-col">CDN Compatibility</td><td class="before-col">Cloudflare Rocket Loader could break module scripts</td><td class="after-col">Rocket Loader mitigations applied at build level</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">M</span>Metrics / KPIs</div>
+    <div class="metrics-grid">
+      <div class="metric-chip"><div class="metric-label">Commits (2026 YTD)</div><div class="metric-value">48</div><div class="metric-note">33 non-merge + 15 merge commits</div></div>
+      <div class="metric-chip"><div class="metric-label">Net LOC Change</div><div class="metric-value">+622</div><div class="metric-note">+1,356 insertions / -734 deletions</div></div>
+      <div class="metric-chip"><div class="metric-label">Largest Refactor</div><div class="metric-value">+459 / -298</div><div class="metric-note">Axios → RTK Query migration</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 8 — TIMETABLE BACKEND
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 08</div>
+    <div class="module-title">Timetable — Backend</div>
+    <div class="module-subtitle">Node.js — Coursewise, Daywise, Institutewise, Papercodewise, Examcenterwise timetable APIs; W25 → S26 dataset rollover</div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes</div>
+    <ul class="content-list">
+      <li><strong>Master-code priority sequence updated:</strong> <span class="tech-tag">'K','F','I','J','G','E','C','S','B','Y','A'</span> (replaced older sequences like <span class="tech-tag">'G','E','C','D','B','A','S','R','M','N','O','T'</span>).</li>
+      <li><strong>Exam-center-wise grouping refined:</strong> One <span class="tech-tag">subject_name</span> per paper_code/day/session selected deterministically using <span class="tech-tag">SUBSTRING_INDEX(GROUP_CONCAT(DISTINCT subject_name ...), 1)</span> with stable separator.</li>
+      <li><strong>Scheme list ordering:</strong> <span class="tech-tag">GROUP_CONCAT(DISTINCT Course_Year_Master_Code ORDER BY &lt;priority&gt;)</span> for stable scheme output.</li>
+      <li><strong>Ordering standardized:</strong> <span class="tech-tag">ORDER BY exam_dayw ASC, daysession DESC, &lt;scheme-priority&gt;, paper_code ASC</span> across all key endpoints.</li>
+      <li><strong>Environment naming:</strong> W25 → S26 for all timetable/RAC/EMS_TH schema/table references.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">B</span>Business / Operational Impact</div>
+    <ul class="content-list">
+      <li>Deterministic API output ordering for daywise/institutewise/papercodewise/examcenterwise endpoints — "same request → different order" variance reduced to zero.</li>
+      <li>Exam-center aggregation correctness improved: eliminated ambiguous GROUP_CONCAT comma-splitting using custom separator ('|||') + DISTINCT.</li>
+      <li>Deployment reliability improved: pinned GitHub Action from floating <span class="tech-tag">@master</span> to <span class="tech-tag">appleboy/ssh-action@v1.0.3</span> — reduces supply-chain drift risk.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">T</span>Technical Enhancements / Upgrades</div>
+    <ul class="content-list">
+      <li><strong>Dataset rollover to S26:</strong>
+        <ul style="margin-top:6px; padding-left:20px; list-style:disc;">
+          <li style="padding:2px 0;"><span class="tech-tag">w25_timetable_subjects_course_all</span> → <span class="tech-tag">s26_timetable_subjects_course_all</span></li>
+          <li style="padding:2px 0;"><span class="tech-tag">paper_code_w25</span> → <span class="tech-tag">paper_code_s26</span></li>
+          <li style="padding:2px 0;"><span class="tech-tag">w25_rac_dc_details</span> → <span class="tech-tag">s26_rac_dc_details</span></li>
+          <li style="padding:2px 0;"><span class="tech-tag">w25_th_input</span> → <span class="tech-tag">s26_th_input</span></li>
+        </ul>
+      </li>
+      <li><strong>DB pool improvements</strong> in <span class="tech-tag">database/database.js</span>: singleton pool + graceful shutdown hooks; health check utility (<span class="tech-tag">SELECT 1 as health_check</span>); query retry wrapper with exponential backoff (3 attempts, 2^attempt × 1000ms waits).</li>
+      <li><strong>Dependency patch upgrades:</strong> body-parser 1.20.3 → 1.20.4, qs 6.13.0 → 6.14.2, raw-body 2.5.2 → 2.5.3, minimatch 3.1.2 → 3.1.5, object-inspect 1.13.1 → 1.13.4.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">X</span>Challenges &amp; Solutions</div>
+    <div class="cs-pair">
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>Inconsistent/undesired ordering of timetable rows across multiple "wise" endpoints causing mismatched presentation for API consumers.</div>
+      <div class="cs-solution"><div class="cs-label">Solution</div>Standardized ordering using MySQL FIELD(master_code, ...) with secondary/tertiary sorts fully specified at SQL level.</div>
+    </div>
+    <div class="cs-pair">
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>Exam-center-wise grouping: concatenated fields could yield non-deterministic or hard-to-parse results.</div>
+      <div class="cs-solution"><div class="cs-label">Solution</div>GROUP_CONCAT(DISTINCT ...) + stable separator ('|||') + SUBSTRING_INDEX(..., 1) to choose a single prioritized subject_name.</div>
+    </div>
+    <div class="cs-pair">
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>CI/CD drift risk due to using a floating GitHub Action reference (@master).</div>
+      <div class="cs-solution"><div class="cs-label">Solution</div>Pinned to appleboy/ssh-action@v1.0.3 in both auto_deploy_dev.yaml and auto_deploy_live.yaml.</div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">V</span>Before vs After Summary</div>
+    <table class="data-table">
+      <thead><tr><th class="label-col">Aspect</th><th class="before-col">Before (W25)</th><th class="after-col">After (S26)</th></tr></thead>
+      <tbody>
+        <tr><td class="label-col">API Ordering</td><td class="before-col">Could return rows in inconsistent priority order; varied by endpoint</td><td class="after-col">All key endpoints enforce consistent master-code priority + stable multi-column ordering</td></tr>
+        <tr><td class="label-col">Exam-center Grouping</td><td class="before-col">Simple GROUP_CONCAT; could produce ambiguous concatenated values</td><td class="after-col">Deterministic: single prioritized subject_name + distinct ordered scheme list</td></tr>
+        <tr><td class="label-col">Dataset References</td><td class="before-col">W25 datasets in env files and table_name.js</td><td class="after-col">S26 in .env.dev, .env.development, .env.production, database/table_name.js</td></tr>
+        <tr><td class="label-col">CI Deployment</td><td class="before-col">Floating @master reference (supply-chain risk)</td><td class="after-col">Pinned appleboy/ssh-action@v1.0.3</td></tr>
+        <tr><td class="label-col">DB Resilience</td><td class="before-col">Basic pool without retry or health check</td><td class="after-col">Singleton pool + graceful shutdown + exponential-backoff retry wrapper</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 9 — SEARCH INSTITUTE BACKEND
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 09</div>
+    <div class="module-title">Search Institute — Backend</div>
+    <div class="module-subtitle">Node.js — Institute search, single-institute detail, print details, categorization, vulnerability remediation</div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes</div>
+    <ul class="content-list">
+      <li><strong>Advanced search accuracy:</strong> Streamlined filter handling + improved matching logic in <span class="tech-tag">performSearch</span>.</li>
+      <li><strong>Single institute workflows:</strong> Fetch single institute details with stricter parameter validation; fetch institute print details by institute code/ID.</li>
+      <li><strong>Institute categorization:</strong> Categorized institutes based on course type flags via <span class="tech-tag">getInstituteCourseTypeFlags</span>.</li>
+      <li><strong>Response correctness:</strong> Total amount calculation fix in institute details response; ensure <span class="tech-tag">atfwsIntake</span> is included in institute details.</li>
+      <li><strong>Empty-result hardening:</strong> Explicit handling and validation for empty institute search results and null-safe district resolution.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">B</span>Business / Operational Impact</div>
+    <ul class="content-list">
+      <li>Fewer null/empty-result runtime failures via guarded empty-result handling and null-safe district resolution.</li>
+      <li><strong>Latency improvement:</strong> <span class="tech-tag">getSingleInstituteDetails</span> optimized using <span class="tech-tag">Promise.all</span> — reduces sequential wait from ~(t1+t2+t3...) to ~(max(t1,t2,t3...)) for independent calls.</li>
+      <li><strong>Security posture (measurable):</strong> npm audit vulnerabilities reduced from <strong>5 (3 high, 2 moderate) → 0</strong> total after dependency updates.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">T</span>Technical Enhancements / Upgrades</div>
+    <ul class="content-list">
+      <li><strong>MySQL SQL repository layer introduced:</strong> <span class="tech-tag">search.sqlRepository.js</span> for clean MySQL-backed search (replaces monolithic repository logic).</li>
+      <li><strong>Security-driven upgrades:</strong>
+        <ul style="margin-top:6px; padding-left:20px; list-style:disc;">
+          <li style="padding:2px 0;">nodemailer upgraded <strong>6.9.13 → 8.0.7</strong></li>
+          <li style="padding:2px 0;">node-cron upgraded <strong>3.0.3 → 4.2.1</strong></li>
+          <li style="padding:2px 0;">tar forced to <strong>^7.5.13</strong> via npm overrides (transitive vuln mitigation)</li>
+        </ul>
+      </li>
+      <li>Utilities added: <span class="tech-tag">formatInstituteCode</span>, <span class="tech-tag">isEmptySearchResult</span> for consistent formatting and validation.</li>
+      <li>SQL query simplification + improved filtering logic in search SQL repositories.</li>
+      <li>Added endpoints/routes for print details and improved single institute detail retrieval.</li>
+    </ul>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">V</span>Before vs After Summary</div>
+    <table class="data-table">
+      <thead><tr><th class="label-col">Aspect</th><th class="before-col">Before</th><th class="after-col">After</th></tr></thead>
+      <tbody>
+        <tr><td class="label-col">Repository Layer</td><td class="before-col">Monolithic repository logic without MySQL SQL separation</td><td class="after-col">Dedicated search.sqlRepository.js with clean MySQL-backed queries</td></tr>
+        <tr><td class="label-col">Single Institute Fetch</td><td class="before-col">Sequential data fetching (~sum of call times)</td><td class="after-col">Promise.all parallelization (~max of call times)</td></tr>
+        <tr><td class="label-col">Empty Results</td><td class="before-col">Could cause null/empty-result runtime failures</td><td class="after-col">Explicit isEmptySearchResult utility + null-safe district lookup</td></tr>
+        <tr><td class="label-col">npm Vulnerabilities</td><td class="before-col">5 total (3 high, 2 moderate)</td><td class="after-col">0 (clean npm audit)</td></tr>
+        <tr><td class="label-col">nodemailer</td><td class="before-col">6.9.13</td><td class="after-col">8.0.7</td></tr>
+        <tr><td class="label-col">node-cron</td><td class="before-col">3.0.3</td><td class="after-col">4.2.1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">M</span>Metrics / KPIs</div>
+    <div class="metrics-grid">
+      <div class="metric-chip"><div class="metric-label">npm Vulnerabilities</div><div class="metric-value">5 → 0</div><div class="metric-note">3 high + 2 moderate → clean</div></div>
+      <div class="metric-chip"><div class="metric-label">Parallel Fetch Latency</div><div class="metric-value">∑ → max</div><div class="metric-note">getSingleInstituteDetails via Promise.all</div></div>
+      <div class="metric-chip"><div class="metric-label">nodemailer</div><div class="metric-value">6.9 → 8.0</div><div class="metric-note">Major version upgrade</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODULE 10 — FRONTEND PLATFORM: ALL MODULES
+════════════════════════════════════════════════════ -->
+<div class="module-page">
+  <div class="module-header">
+    <div class="module-tag">Module 10</div>
+    <div class="module-title">Frontend Platform — All Modules</div>
+    <div class="module-subtitle">React + MUI + RTK Query — Institute &amp; RBTE portal; 14 sub-modules with individual change breakdowns</div>
+  </div>
+
+  <!-- 10.1 Affiliation -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.1 &nbsp; Affiliation</div>
+    <div class="sub-module-meta">Institute-side status/payments/uploads/reports · RBTE confirmation, certificates, add-courses · 80 commits · 35 files · +24,428 / −10,811 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Institute-side affiliation status, payments, uploads, and reports; RBTE-side confirmation, institute lists, certificates, and add-courses workflows.</li>
+      <li>Loading/error handling improvements on affiliation status flows reduce failed interactions during peak submission windows.</li>
+      <li>Conditional rendering refinements for MSBTE block/closure reduce incorrect print outputs.</li>
+      <li>Clear split: <span class="tech-tag">src/sections/institute/affiliation</span> vs <span class="tech-tag">src/sections/rbte/affiliation</span> with dedicated nav config files.</li>
+    </ul>
+  </div>
+
+  <!-- 10.2 COE -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.2 &nbsp; Certificate of Eligibility (COE)</div>
+    <div class="sub-module-meta">Institute + RBTE COE workflows · 153 commits · 93 files · +21,068 / −5,470 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Stronger subject-selection / eligibility validation reduces invalid COE applications before RBTE/institute confirmation steps.</li>
+      <li>Expanded/structured COE report navigation improves traceability for applied vs confirmed cohorts.</li>
+      <li>React Hook Form + Joi-style validation improvements for eligibility subject selection flows.</li>
+      <li>MUI DataGrid auto row height for dense tables.</li>
+      <li>COE UI modularized by admission vs institute vs manual routes under <span class="tech-tag">src/pages/**/COE/**</span>.</li>
+      <li>Refactored selection logic + dynamic labels + clearer validation gates tied to course code / exam history rules.</li>
+    </ul>
+  </div>
+
+  <!-- 10.3 Exam Form Frontend -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.3 &nbsp; Exam Form (Frontend)</div>
+    <div class="sub-module-meta">Institute Winter + RBTE winter + Candidate exam form pages · 289 commits · 136 files · +39,603 / −7,478 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Multi-print attendance flows added; stronger loading/error handling; seating-chart correction safeguards.</li>
+      <li>Correction page improvements reduce duplicate/incorrect subject corrections.</li>
+      <li>Joi schema adjustments for digit-length flexibility on enrollment/seat fields.</li>
+      <li>Dedicated print components for attendance and hall-ticket outputs.</li>
+      <li>Clear separation: Regular vs X exam form Redux slices (<span class="tech-tag">regular-examform</span> vs <span class="tech-tag">x-examform</span>).</li>
+      <li>Route/menu alignment to isolate RBTE vs institute behaviors while reusing shared examform APIs.</li>
+    </ul>
+  </div>
+
+  <!-- 10.4 Copy Case -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.4 &nbsp; Copy Case</div>
+    <div class="sub-module-meta">Institute Exam Center + SC center malpractice flows · 76 commits · 43 files · +9,108 / −2,289 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Normalization fixes in edit/confirm tables reduce incorrect candidate display.</li>
+      <li>Toast-based success/error handling on confirmations reduces silent failures.</li>
+      <li>Table mapping fixes + print layout refinements + clearer confirmation UX.</li>
+      <li>Stronger client-side validation around seat/paper/sr identifiers for malpractice capture.</li>
+      <li>Copy case isolated as own UI subtree + slice, reducing coupling with regular exam-form slices.</li>
+    </ul>
+  </div>
+
+  <!-- 10.5 Exemption -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.5 &nbsp; Exemption</div>
+    <div class="sub-module-meta">Institute + RBTE exemption apply/confirm/print/cancel + reports · 45 commits · 27 files · +5,438 / −1,799 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Table/layout refactors (auto row height) improve usability on wide confirm tables.</li>
+      <li>Report accordion refactors reduce duplicated UI code across exemption report lists.</li>
+      <li>Seasonal rename churn (Winter 2025 → Summer 2026) handled with systematic text/reference updates.</li>
+      <li>Reusable <span class="tech-tag">AccordionComponent</span> for report lists reduces code duplication.</li>
+    </ul>
+  </div>
+
+  <!-- 10.6 Scholarship -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.6 &nbsp; Scholarship</div>
+    <div class="sub-module-meta">Institute + RBTE scholarship verification/edit/reports · 103 commits · 46 files · +22,566 / −7,379 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Expanded document verification + edit flows with clearer row selection and status display.</li>
+      <li>Explicit enable/disable for "Scholarship Allotted Report with Bank Details" prevents accidental publication of incomplete reports.</li>
+      <li>API mutations extended with <span class="tech-tag">is_autonomous</span> parameter for document retrieval paths.</li>
+      <li>RBTE scholarship verification/edit flows separated into dedicated route pages under <span class="tech-tag">src/pages/rbte/scholership/**</span>.</li>
+    </ul>
+  </div>
+
+  <!-- 10.7 Stationery -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.7 &nbsp; Stationery</div>
+    <div class="sub-module-meta">Institute + RBTE stationery management · 51 commits · 19 files · +6,907 / −2,913 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>EC vs DC labeling fixes reduce wrong dispatch decisions.</li>
+      <li>Loading states + validation on Summer 2026 stationery flows reduce incomplete submissions.</li>
+      <li>Schema validation fixes (e.g., <span class="tech-tag">remarks → remark</span>) and DataGrid column/data swaps for correct rendering.</li>
+      <li>Serial number range editing with validation hooks; clearer EC/DC list retrieval consistency fixes.</li>
+      <li>Stationery Redux isolated under <span class="tech-tag">examform/stationery</span>.</li>
+    </ul>
+  </div>
+
+  <!-- 10.8 Enrollment -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.8 &nbsp; Enrollment</div>
+    <div class="sub-module-meta">Institute + RBTE enrollment · 53 commits · 51 files · +16,947 / −4,044 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Added child institute details and improved print outputs for enrollment confirmations.</li>
+      <li>Expanded document verification options and submission logic clarity.</li>
+      <li>MUI Grid sizing adjustments for responsive application forms.</li>
+      <li>Routing path corrections for non-AICTE application entry.</li>
+      <li>Enrollment split by AICTE vs NON-AICTE subtrees preserving operational separation.</li>
+      <li>Systematic terminology update: "Candidate" vs "Student" consistency across large forms.</li>
+    </ul>
+  </div>
+
+  <!-- 10.9 ABC ID -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.9 &nbsp; ABC ID</div>
+    <div class="sub-module-meta">Candidate ABC ID creation + institute dashboards/reports · 14 commits · 13 files · +2,232 / −494 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>OTP-based onboarding reduces manual institute helpdesk interventions for identity creation.</li>
+      <li>Dedicated <span class="tech-tag">apiSliceABCID</span> integration and iterative OTP verification endpoint adjustments.</li>
+      <li>Clear separation: candidate flow vs institute reporting vs shared API slice.</li>
+      <li>OTP verification flow changes reduce risk of fraudulent ABC ID creation.</li>
+    </ul>
+  </div>
+
+  <!-- 10.10 Search Institute Frontend -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.10 &nbsp; Search Institute (Frontend)</div>
+    <div class="sub-module-meta">Public/auth-surface institute search + table + print · 48 commits · 3 files · +3,532 / −1,508 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Broader ID acceptance + improved print layout reduces institute-support rework for "cannot find institute" cases.</li>
+      <li>MUI DataGrid enhancements for totals + search params; print formatting improvements.</li>
+      <li>Migration to <span class="tech-tag">useSecureSearchParams</span> for encrypted query handling — reduces sensitive query leakage in URLs.</li>
+      <li>Clear 3-surface split: search, table, print components under one module folder.</li>
+    </ul>
+  </div>
+
+  <!-- 10.11 Digital Evaluation -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.11 &nbsp; Digital Evaluation</div>
+    <div class="sub-module-meta">Institute digital evaluation activity suite: DC receipts, SC↔DC, SC→SC team lead · 26 commits · 11 files · +2,450 / −517 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Added totals on print pages reduces manual summation during DC/SC audits.</li>
+      <li>Renamed headers/notes and improved empty-state handling reduce misreads.</li>
+      <li>Print CSS improvements (auto page sizing), signature line standardization, toast feedback for empty lists.</li>
+      <li>Separate print routes/components for DC vs SC vs team lead with consistent totals blocks.</li>
+      <li>Feature isolated under <span class="tech-tag">digital-evaluation-activity</span> namespace.</li>
+    </ul>
+  </div>
+
+  <!-- 10.12 DC EC CI -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.12 &nbsp; DC–EC–CI (RBTE)</div>
+    <div class="sub-module-meta">RBTE distribution center / DEC capacity / scanning center mapping · 66 commits · 57 files · +10,606 / −2,826 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>DEC capacity screens gained loading states and clearer "connected institute" semantics (rac_code-driven navigation).</li>
+      <li>Header renaming (DC→EC where appropriate); list retrieval hook corrections; save-button loading guards.</li>
+      <li>Clearer payload keys (<span class="tech-tag">rac_code → API field mapping</span>) reduce accidental wrong-institute submissions.</li>
+      <li>Centralized ECDCCI API surface in <span class="tech-tag">ec-dc slice</span> consumed by multiple DEC pages.</li>
+    </ul>
+  </div>
+
+  <!-- 10.13 RAC -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.13 &nbsp; RAC</div>
+    <div class="sub-module-meta">RAC-scoped DEC capacity editing/navigation · 13 commits · 8 files · +1,752 / −399 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>rac_code query-driven flows reduce wrong institute context when editing connected institute capacity.</li>
+      <li>Explicit query param handling (<span class="tech-tag">rac_code</span>) and payload mapping (<span class="tech-tag">rac, rac_inst_arr</span>) aligned to backend expectations.</li>
+      <li>Dedicated edit pages + grid linkage to <span class="tech-tag">secondYearDecCapacityEdit?rac_code=...</span> style navigation.</li>
+    </ul>
+  </div>
+
+  <!-- 10.14 Emarksheet Frontend RBTE -->
+  <div class="sub-module-header">
+    <div class="sub-module-title">10.14 &nbsp; E-Marksheet (Frontend RBTE)</div>
+    <div class="sub-module-meta">RBTE emarksheet password reset (non-theory) + reports UI · 9 commits · 8 files · +567 / −291 LOC</div>
+  </div>
+  <div class="section-card">
+    <div class="section-heading"><span class="section-icon">C</span>Changes &amp; Impact</div>
+    <ul class="content-list compact">
+      <li>Added/updated report entries (e.g., sheet statistics NTH) expanding RBTE reporting coverage without new manual report builds.</li>
+      <li>Centralized RTK base query refactor for API consistency across emarksheet slice.</li>
+      <li>Report URL adjustments aligned to current exam season (Winter 2025 → Summer 2026 naming).</li>
+      <li>Emarksheet remains isolated under <span class="tech-tag">src/sections/rbte/emarksheet</span> + dedicated Redux folder.</li>
+    </ul>
+  </div>
+
+  <!-- Frontend Platform Summary Table -->
+  <div class="section-card" style="margin-top:28px;">
+    <div class="section-heading"><span class="section-icon">V</span>Frontend Platform — Module Summary</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Sub-Module</th>
+          <th style="text-align:right;">Commits</th>
+          <th style="text-align:right;">Files</th>
+          <th style="text-align:right;">Lines Added</th>
+          <th style="text-align:right;">Lines Removed</th>
+          <th style="text-align:right;">Net Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Affiliation</td><td style="text-align:right;">80</td><td style="text-align:right;">35</td><td style="text-align:right;">+24,428</td><td style="text-align:right;">-10,811</td><td style="text-align:right;font-weight:600;">+13,617</td></tr>
+        <tr><td>Certificate of Eligibility (COE)</td><td style="text-align:right;">153</td><td style="text-align:right;">93</td><td style="text-align:right;">+21,068</td><td style="text-align:right;">-5,470</td><td style="text-align:right;font-weight:600;">+15,598</td></tr>
+        <tr><td>Exam Form (Frontend)</td><td style="text-align:right;">289</td><td style="text-align:right;">136</td><td style="text-align:right;">+39,603</td><td style="text-align:right;">-7,478</td><td style="text-align:right;font-weight:600;">+32,125</td></tr>
+        <tr><td>Copy Case</td><td style="text-align:right;">76</td><td style="text-align:right;">43</td><td style="text-align:right;">+9,108</td><td style="text-align:right;">-2,289</td><td style="text-align:right;font-weight:600;">+6,819</td></tr>
+        <tr><td>Exemption</td><td style="text-align:right;">45</td><td style="text-align:right;">27</td><td style="text-align:right;">+5,438</td><td style="text-align:right;">-1,799</td><td style="text-align:right;font-weight:600;">+3,639</td></tr>
+        <tr><td>Scholarship</td><td style="text-align:right;">103</td><td style="text-align:right;">46</td><td style="text-align:right;">+22,566</td><td style="text-align:right;">-7,379</td><td style="text-align:right;font-weight:600;">+15,187</td></tr>
+        <tr><td>Stationery</td><td style="text-align:right;">51</td><td style="text-align:right;">19</td><td style="text-align:right;">+6,907</td><td style="text-align:right;">-2,913</td><td style="text-align:right;font-weight:600;">+3,994</td></tr>
+        <tr><td>Enrollment</td><td style="text-align:right;">53</td><td style="text-align:right;">51</td><td style="text-align:right;">+16,947</td><td style="text-align:right;">-4,044</td><td style="text-align:right;font-weight:600;">+12,903</td></tr>
+        <tr><td>ABC ID</td><td style="text-align:right;">14</td><td style="text-align:right;">13</td><td style="text-align:right;">+2,232</td><td style="text-align:right;">-494</td><td style="text-align:right;font-weight:600;">+1,738</td></tr>
+        <tr><td>Search Institute (UI)</td><td style="text-align:right;">48</td><td style="text-align:right;">3</td><td style="text-align:right;">+3,532</td><td style="text-align:right;">-1,508</td><td style="text-align:right;font-weight:600;">+2,024</td></tr>
+        <tr><td>Digital Evaluation</td><td style="text-align:right;">26</td><td style="text-align:right;">11</td><td style="text-align:right;">+2,450</td><td style="text-align:right;">-517</td><td style="text-align:right;font-weight:600;">+1,933</td></tr>
+        <tr><td>DC–EC–CI</td><td style="text-align:right;">66</td><td style="text-align:right;">57</td><td style="text-align:right;">+10,606</td><td style="text-align:right;">-2,826</td><td style="text-align:right;font-weight:600;">+7,780</td></tr>
+        <tr><td>RAC</td><td style="text-align:right;">13</td><td style="text-align:right;">8</td><td style="text-align:right;">+1,752</td><td style="text-align:right;">-399</td><td style="text-align:right;font-weight:600;">+1,353</td></tr>
+        <tr><td>E-Marksheet (RBTE UI)</td><td style="text-align:right;">9</td><td style="text-align:right;">8</td><td style="text-align:right;">+567</td><td style="text-align:right;">-291</td><td style="text-align:right;font-weight:600;">+276</td></tr>
+        <tr style="background:#f0f0f0; font-weight:700;">
+          <td><strong>TOTAL</strong></td>
+          <td style="text-align:right;"><strong>1,026</strong></td>
+          <td style="text-align:right;"><strong>550</strong></td>
+          <td style="text-align:right;"><strong>+167,204</strong></td>
+          <td style="text-align:right;"><strong>-48,218</strong></td>
+          <td style="text-align:right;"><strong>+118,986</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end module 10 -->
+
+</div><!-- end page-wrapper -->
+</body>
+</html>
