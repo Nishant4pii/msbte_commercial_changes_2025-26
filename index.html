@@ -22,29 +22,10 @@
     /* ═══════════════════════════════════════════════════
        PRINT HEADER & FOOTER (running elements)
     ═══════════════════════════════════════════════════ */
-    #print-header {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      text-align: center;
-      font-size: 9px;
-      color: #666;
-      border-bottom: 1px solid #ccc;
-      padding: 4px 20mm;
-      background: #fff;
-    }
-
+    /* Print header/footer: hidden on screen, only shown in print via @media print */
+    #print-header,
     #print-footer {
       display: none;
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      font-size: 9px;
-      color: #666;
-      border-top: 1px solid #ccc;
-      padding: 4px 20mm;
-      background: #fff;
-      display: flex;
-      justify-content: space-between;
     }
 
     /* ═══════════════════════════════════════════════════
@@ -60,7 +41,7 @@
        COVER PAGE
     ═══════════════════════════════════════════════════ */
     .cover-page {
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -535,34 +516,38 @@
         margin: 0;
       }
 
-      #print-header {
-        display: block;
-      }
-
+      /* Hide custom header/footer divs — browser provides its own */
+      #print-header,
       #print-footer {
-        display: flex;
+        display: none !important;
       }
 
       .no-print {
         display: none !important;
       }
 
-      /* Cover page fill */
+      /* Cover page: fits the page, NO page-break-after (TOC handles its own break-before) */
       .cover-page {
-        min-height: 100vh;
-        page-break-after: always;
+        min-height: 0;
+        height: calc(297mm - 44mm); /* A4 minus top+bottom @page margins */
+        page-break-after: avoid;
+        break-after: avoid;
         border: none;
+        box-sizing: border-box;
       }
 
-      /* TOC on its own page */
+      /* TOC: starts on its own page with a single break-before */
       .toc-page {
         page-break-before: always;
-        page-break-after: always;
+        break-before: page;
+        page-break-after: avoid;
+        break-after: avoid;
       }
 
-      /* Each module starts on a new page */
+      /* Each module starts on a new page — single break-before, no break-after */
       .module-page {
         page-break-before: always;
+        break-before: page;
       }
 
       /* Avoid orphaned section headings */
@@ -611,10 +596,6 @@
         margin: 22mm 18mm 22mm 18mm;
         size: A4;
       }
-
-      @page :first {
-        margin: 10mm;
-      }
     }
 
     @page {
@@ -623,17 +604,6 @@
   </style>
 </head>
 <body>
-
-<!-- ════════════════════════════════════════════════════
-     PRINT RUNNING HEADER / FOOTER
-════════════════════════════════════════════════════ -->
-<div id="print-header">
-  Maharashtra State Board of Technical Education — Commercial Changes &amp; Technology Upgrades 2025–26 | CONFIDENTIAL
-</div>
-<div id="print-footer" style="display:none;">
-  <span>MSBTE — Internal Report | 2025–26</span>
-  <span>Page <span class="page-num"></span></span>
-</div>
 
 <div class="page-wrapper">
 
