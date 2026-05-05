@@ -135,7 +135,7 @@
        TABLE OF CONTENTS
     ═══════════════════════════════════════════════════ */
     .toc-page {
-      padding: 48px 0;
+      padding: 32px 0;
     }
 
     .toc-title {
@@ -144,7 +144,7 @@
       color: #1a1a1a;
       border-bottom: 2px solid #333;
       padding-bottom: 10px;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
 
     .toc-list {
@@ -154,9 +154,9 @@
     .toc-list li {
       display: flex;
       align-items: baseline;
-      padding: 6px 0;
+      padding: 4px 0;
       border-bottom: 1px dotted #d8d8d8;
-      font-size: 12.5px;
+      font-size: 12px;
     }
 
     .toc-num {
@@ -172,7 +172,7 @@
 
     .toc-sub {
       padding-left: 28px !important;
-      font-size: 11.5px;
+      font-size: 11px;
       color: #555;
       border-bottom-color: #eee !important;
     }
@@ -536,12 +536,30 @@
         box-sizing: border-box;
       }
 
-      /* TOC: starts on its own page with a single break-before */
+      /* TOC: starts on its own page, all content kept together */
       .toc-page {
         page-break-before: always;
         break-before: page;
         page-break-after: avoid;
         break-after: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding: 24px 0 0 0;
+      }
+
+      .toc-title {
+        font-size: 15px;
+        margin-bottom: 12px;
+        padding-bottom: 7px;
+      }
+
+      .toc-list li {
+        padding: 2.5px 0;
+        font-size: 10.5px;
+      }
+
+      .toc-sub {
+        font-size: 10px;
       }
 
       /* Each module starts on a new page — single break-before, no break-after */
