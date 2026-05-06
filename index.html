@@ -818,7 +818,7 @@
   <div class="module-header">
     <div class="module-tag">Module 01</div>
     <div class="module-title">MSBTE Central Backend &mdash; Authentication, COB, DEC &amp; Integration Services</div>
-    <div class="module-subtitle">The primary application server powering login and secure session management for all user roles &mdash; Administrators, Institutes, RBTE Officers, and Candidates &mdash; alongside Change of Branch (COB), Diploma Engineering Course (DEC), Circulars, Digital Evaluation, and MahaIT/RTS integration services</div>
+    <div class="module-subtitle">The primary application server powering login and secure session management for all user roles &mdash; Administrators, Institutes, RBTE Officers, and Candidates &mdash; alongside Certificate of Backlog (COB), Diploma Engineering Course (DEC), Circulars, Digital Evaluation, and MahaIT/RTS integration services</div>
   </div>
 
   <div class="section-card">
@@ -835,7 +835,7 @@
   <div class="section-card section-card--sub">
     <div class="section-heading"><span class="section-icon">C</span>Commercial / Functional Changes &mdash; COB, DEC &amp; Operations</div>
     <ul class="content-list">
-      <li><strong>Change of Branch (COB) at admission and institute levels:</strong> Candidates can apply for a change of branch at admission stage, selecting their preferred discipline with a structured application flow (apply, review details, confirm, cancel). Institutes can also initiate and manage COB applications on behalf of candidates within their jurisdiction.</li>
+      <li><strong>Certificate of Backlog (COB) management:</strong> Students can apply for a Certificate of Backlog &mdash; an official document confirming which subjects remain pending &mdash; through a structured digital workflow covering application submission, detail review, confirmation, cancellation, and printing. Institutes can also initiate and manage COB applications on behalf of their students, with full visibility into each application&rsquo;s status at every stage.</li>
       <li><strong>Diploma Engineering Course (DEC) management:</strong> RBTE officers can manage DEC registrations for 1st, 2nd, and final-year students &mdash; adding, viewing, and removing registrations with validated input and RBTE-gated access ensuring only authorised officers can perform these operations.</li>
       <li><strong>Circulars and operational notifications:</strong> The system manages access to circulars for different user roles, including restricted circulars accessible only to authorised parties. Malpractice-related circulars and authority letters are handled through dedicated, access-controlled routes.</li>
       <li><strong>Question Paper (QP) Statistics:</strong> Administrators can access statistical reports on question paper usage and distribution &mdash; supporting examination paper management without requiring direct database access.</li>
@@ -862,7 +862,7 @@
     <ul class="content-list">
       <li><strong>All roles login through one secure gateway:</strong> A single authentication engine reduces inconsistency in how different user types are verified &mdash; every login, regardless of role, goes through the same secure session management process with role-appropriate access.</li>
       <li><strong>Account brute-force protection is now active:</strong> Automated login-attempt throttling is in place for all roles &mdash; administrators no longer need to manually intervene when suspicious login patterns are detected.</li>
-      <li><strong>COB applications are fully digital and traceable:</strong> The Change of Branch process &mdash; from application to confirmation &mdash; is now entirely managed through the platform, with a clear audit trail at every step.</li>
+      <li><strong>COB applications are fully digital and traceable:</strong> The Certificate of Backlog process &mdash; from application submission to confirmation and printing &mdash; is now entirely managed through the platform, with a clear audit trail at every step.</li>
       <li><strong>RBTE DEC operations are governed by access control:</strong> Only authorised RBTE officers can manage DEC registrations, and all operations are validated &mdash; reducing the risk of incorrect registrations entering the official records.</li>
       <li><strong>Government platform connectivity maintained:</strong> MahaIT and RTS integrations are kept current &mdash; MSBTE's compliance with state government reporting requirements is not disrupted by infrastructure changes at the government end.</li>
       <li><strong>Stationery dispatch reporting is accurate:</strong> SC/DC answer book distribution reports now reflect correct ordering and handle scenarios where no data exists (returning an empty list rather than an error), giving operations teams a reliable view of dispatch status.</li>
@@ -934,7 +934,7 @@
         <tr><td class="label-col">MahaIT Integration</td><td class="before-col">Encrypted payloads rejected by JSON parser &mdash; integration failures requiring manual intervention</td><td class="after-col">Separate parser for MahaIT paths &mdash; encrypted requests handled correctly without affecting other routes</td></tr>
         <tr><td class="label-col">SC/DC Dispatch Reports</td><td class="before-col">Duplicate rows and incorrect ordering &mdash; unreliable for operations verification</td><td class="after-col">Correct grouping, ordering, and empty-list handling &mdash; reports reliable for all dispatch scenarios</td></tr>
         <tr><td class="label-col">Database Table Names</td><td class="before-col">Inconsistent table references across environments &mdash; risk of silent data errors</td><td class="after-col">Standardised and config-driven &mdash; correct tables used in every environment automatically</td></tr>
-        <tr><td class="label-col">COB Process</td><td class="before-col">Change of Branch handled through offline or manual processes</td><td class="after-col">Fully digital COB workflow &mdash; application, review, confirm, and cancel all managed online with audit trail</td></tr>
+        <tr><td class="label-col">COB Process</td><td class="before-col">Certificate of Backlog applications handled through offline or manual processes</td><td class="after-col">Fully digital COB workflow &mdash; students and institutes apply, confirm, cancel, and print online with complete audit trail</td></tr>
         <tr><td class="label-col">DEC Management</td><td class="before-col">DEC operations without explicit RBTE access control</td><td class="after-col">RBTE-gated DEC routes &mdash; only authorised officers can manage DEC registrations with validated inputs</td></tr>
       </tbody>
     </table>
@@ -971,7 +971,7 @@
       <li><strong>Affiliation administration expanded:</strong> New workflows for onboarding institutes, managing affiliation removal, viewing affiliation history, course details, and add-course requests.</li>
       <li><strong>Enrollment management:</strong> Candidate search by enrollment number and date-wise confirmation tracking added for operators.</li>
       <li><strong>Circular management:</strong> Ability to publish, toggle active/inactive, and manage circulars for EC, DC, and SC levels from a single interface.</li>
-      <li><strong>RBTE operational reports:</strong> Comprehensive new reports covering fee collection, COB (Cut-Off Batch), inventory, detained candidates, malpractice cases, and remuneration revisions.</li>
+      <li><strong>RBTE operational reports:</strong> Comprehensive new reports covering fee collection, COB (Certificate of Backlog), inventory, detained candidates, malpractice cases, and remuneration revisions.</li>
       <li><strong>Bulk communications:</strong> Bulk email dispatch with editable templates updated for Summer 2026 examination cycle communications.</li>
       <li><strong>Bulk candidate registration:</strong> Improved batch registration with audit logging and safeguards against duplicate processing.</li>
       <li><strong>Hall ticket &amp; DTE data preparation:</strong> Workflows for preparing hall ticket data and submitting information to DTE (Directorate of Technical Education).</li>
@@ -1035,7 +1035,7 @@
       <div class="cs-solution"><div class="cs-label">Solution</div>Batch write operations are now handled with appropriate safeguards &mdash; data is validated, temporarily relaxed constraints are applied only where safe and necessary, and all inserts are logged for auditability.</div>
     </div>
     <div class="cs-pair">
-      <div class="cs-challenge"><div class="cs-label">Challenge</div>A change-of-branch (COB) operation in scheme updates could cause certain enrollment records to get stuck in a processing loop, consuming server resources.</div>
+      <div class="cs-challenge"><div class="cs-label">Challenge</div>A Certificate of Backlog (COB) operation during scheme updates could cause certain enrollment records to get stuck in a processing loop, consuming server resources.</div>
       <div class="cs-solution"><div class="cs-label">Solution</div>Background task logic updated to detect and skip already-processed or inapplicable records, preventing infinite loops and freeing up server resources.</div>
     </div>
   </div>
